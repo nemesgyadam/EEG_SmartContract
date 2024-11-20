@@ -4,6 +4,7 @@ async function main() {
     const UsersInfo = await ethers.getContractFactory("UsersInfo");
     const user_info = await UsersInfo.deploy();
     console.log("Contract Deployed to Address:", user_info.address);
+    console.log("Nice")
   }
   main()
     .then(() => process.exit(0))
