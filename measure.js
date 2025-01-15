@@ -54,8 +54,10 @@ async function executeCycle() {
   const std = math.std(ets);
 
   console.info('Execution times:', ets);
-  console.info('Mean:', mean);
-  console.info('Standard Deviation:', std);
+  // Better output
+  console.info('Mean Execution Time:', mean, 'ms');
+  console.info('Standard Deviation:', std, 'ms');
+
 
 }
 
