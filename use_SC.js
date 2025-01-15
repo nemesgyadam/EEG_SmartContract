@@ -24,9 +24,17 @@ async function getUserInfo(participantId) {
   try {
     const userInfo = await usersInfoContract.methods.getUser(participantId).call();
    
-    console.log(userInfo);
+    console.log(`User Info for ${participantId}:`, userInfo);
   } catch (error) {
-    console.error(error);
+     if (error.message.includes('invalid')) {
+      console.error(`Error: Invalid participant ID ${participantId}.`);
+    } else if (error.message.includes('network')) {
+      console.error(`Error: Network issue w${participantId}`);
+    } else if (error.message.includes('call')) {
+      console.error(`Error: The ID might not exist ${participantId}`);
+    } else {
+      console.error(`Unexpected error for ${participantId}: ${error.message}`);
+    }
   }
   var end = new Date() - start
   console.info('Execution time: %dms', end)
