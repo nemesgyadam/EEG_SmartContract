@@ -39,13 +39,15 @@ async function getUserInfo(participantId) {
 var ids = ["1348773b", "6808dfab", "0717b399", "a9223e93", "cb383bfd"];
 
 async function executeCycle() {
-  var cycles = 200;
-  var ets = [];
+  const cycles = 200;
+  const ets = [];
+  let callCount = 0;
 
   for (let i = 0; i < cycles; i++) {
     for (const value of ids) {
       const et = await getUserInfo(value);
       ets.push(et);
+      callCount++;
     }
   }
 
@@ -56,7 +58,7 @@ async function executeCycle() {
   console.info('Execution times:', ets);
   console.info('Mean:', mean);
   console.info('Standard Deviation:', std);
-
+  console.info('Total API calls made:', callCount);
 }
 
 executeCycle();
