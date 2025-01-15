@@ -6,8 +6,8 @@ const Web3 = require('web3');
 const fs = require('fs');
 
 // Get the participant ID from the command line
-var argv = require('minimist')(process.argv.slice(2));
-var subject_ID = argv['_'][0];
+let argv = require('minimist')(process.argv.slice(2));
+let subject_ID = argv['_'][0];
 
 // Load the contract ABI
 const web3 = new Web3(API_URL);
