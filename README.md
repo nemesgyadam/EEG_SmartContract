@@ -29,3 +29,6 @@ npm install -g truffle ganache-cli
 truffle compile
 truffle migrate
 ```
+
+## Licence:
+MIT 
